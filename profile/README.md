@@ -4,6 +4,8 @@
   <img src="https://img.shields.io/badge/Built%20in-Bengaluru%2C%20India-FF6B35?style=for-the-badge" />
   &nbsp;
   <img src="https://img.shields.io/badge/Focus-Data%20%7C%20AI%20%7C%20OSS-22c55e?style=for-the-badge" />
+  &nbsp;
+  <a href="https://willowvibe.github.io/"><img src="https://img.shields.io/badge/Portfolio-Live%20demos-6366f1?style=for-the-badge" alt="Portfolio" /></a>
 </p>
 
 <br/>
@@ -64,7 +66,7 @@ pipelineprobe init      # generates pipelineprobe.yml
 pipelineprobe audit     # produces pipelineprobe-report.html
 ```
 
-- ✅ **Airflow checks** — high failure-rate DAGs, missing retries, missing SLAs, stale pipelines
+- ✅ **Airflow checks** — high failure-rate DAGs, missing retries, stale pipelines
 - ✅ **dbt checks** — models with zero tests, failing test runs, orphaned models
 - ✅ **Warehouse checks** — oversized tables, missing audit timestamps (Postgres, BigQuery, Snowflake)
 - ✅ **HTML + JSON report** — traffic-light severity, health score 0–100, per-issue recommendations
@@ -73,7 +75,9 @@ pipelineprobe audit     # produces pipelineprobe-report.html
 
 **Stack:** Python · Typer · Pydantic · httpx · Jinja2 · psycopg2 · dbt artifacts
 
-[![PipelineProbe Repo](https://img.shields.io/badge/→%20View%20PipelineProbe-6366f1?style=for-the-badge)](https://github.com/willowvibe/pipelineprobe)
+[![PipelineProbe Demo](https://img.shields.io/badge/→%20Open%20the%20live%20demo-6366f1?style=for-the-badge)](https://willowvibe.github.io/pipelineprobe/)
+[![PipelineProbe Repo](https://img.shields.io/badge/→%20View%20the%20source-312e81?style=for-the-badge)](https://github.com/willowvibe/pipelineprobe)
+[![PyPI](https://img.shields.io/pypi/v/pipelineprobe?style=flat-square)](https://pypi.org/project/pipelineprobe/)
 [![MIT License](https://img.shields.io/github/license/willowvibe/pipelineprobe?style=flat-square)](https://github.com/willowvibe/pipelineprobe/blob/main/LICENSE)
 
 ---
@@ -94,7 +98,8 @@ ObservaKit gives 1–5 person data teams the **5 core observability pillars** �
 
 **Stack:** Python · FastAPI · SQLAlchemy · Alembic · Prometheus · Grafana · Docker Compose · dbt · Airflow / Prefect
 
-[![ObservaKit Repo](https://img.shields.io/badge/→%20View%20ObservaKit-7c3aed?style=for-the-badge)](https://github.com/willowvibe/ObservaKit)
+[![ObservaKit Demo](https://img.shields.io/badge/→%20Open%20the%20live%20demo-7c3aed?style=for-the-badge)](https://willowvibe.github.io/ObservaKit/)
+[![ObservaKit Repo](https://img.shields.io/badge/→%20View%20the%20source-4c1d95?style=for-the-badge)](https://github.com/willowvibe/ObservaKit)
 [![MIT License](https://img.shields.io/github/license/willowvibe/ObservaKit?style=flat-square)](https://github.com/willowvibe/ObservaKit/blob/main/LICENSE)
 
 ---
@@ -176,8 +181,10 @@ We are open to:
   <sub>
     🌿 <strong>WillowVibe</strong> — Bengaluru, India &nbsp;·&nbsp;
     Building in the open since 2024 &nbsp;·&nbsp;
-    <a href="https://github.com/willowvibe/pipelineprobe">Try PipelineProbe 🔬</a>
+    <a href="https://willowvibe.github.io/">Portfolio hub 🌿</a>
     &nbsp;·&nbsp;
-    <a href="https://github.com/willowvibe/ObservaKit">Star ObservaKit ⭐</a>
+    <a href="https://willowvibe.github.io/pipelineprobe/">PipelineProbe demo 🔬</a>
+    &nbsp;·&nbsp;
+    <a href="https://willowvibe.github.io/ObservaKit/">ObservaKit demo ⭐</a>
   </sub>
 </p>
