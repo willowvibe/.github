@@ -61,14 +61,14 @@ We operate a **solo + contributor model** — lean by design, moving fast, build
 Run a single command, get a full HTML audit report. PipelineProbe is a **read-only CLI audit tool** for data engineers who want a fast, objective health check of their pipeline stack — before a migration, after an incident, or as a recurring CI gate.
 
 ```bash
-pip install pipelineprobe
+pip install pipelineprobe==0.3.1
 pipelineprobe init      # generates pipelineprobe.yml
 pipelineprobe audit     # produces pipelineprobe-report.html
 ```
 
 - ✅ **Airflow checks** — high failure-rate DAGs, missing retries, stale pipelines
-- ✅ **dbt checks** — models with zero tests, failing test runs, orphaned models
-- ✅ **Warehouse checks** — oversized tables, missing audit timestamps (Postgres, BigQuery, Snowflake)
+- ✅ **dbt checks** — models with zero tests and failing test runs
+- ✅ **Warehouse checks** — oversized tables and missing audit timestamps (Postgres; BigQuery and Snowflake cost insights)
 - ✅ **HTML + JSON report** — traffic-light severity, health score 0–100, per-issue recommendations
 - ✅ **CI-ready** — `fail_on_critical` exit code gates for GitHub Actions / GitLab CI
 - ✅ **Zero mutations** — 100% read-only; safe to run against production
@@ -90,7 +90,7 @@ ObservaKit gives 1–5 person data teams the **5 core observability pillars** �
 
 - ✅ Freshness Monitor — detects stale tables by tracking `max(updated_at)`
 - ✅ Volume Anomaly — Z-score detection against 7-day rolling averages
-- ✅ Quality Checks — Soda Core & Great Expectations templates, ready to use
+- ✅ Quality Checks — Soda Core checks, with Great Expectations templates (GX execution not yet implemented)
 - ✅ Schema Drift Detector — snapshots `information_schema`, diffs on every run
 - ✅ Pipeline Health — Airflow/Prefect REST API + OpenTelemetry + Grafana
 - ✅ FinOps Tracker — Snowflake credits & BigQuery bytes billed, natively
