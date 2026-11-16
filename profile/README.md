@@ -46,6 +46,7 @@ WillowVibe is a **data engineering & AI tooling studio** — solo-founded, contr
 - **Data Observability** — continuous monitoring for pipeline health, data freshness, volume anomalies, and schema drift
 - **FinOps for Data** — tracking Snowflake credits and BigQuery bytes billed, turning cloud cost chaos into actionable visibility
 - **AI-Augmented Pipelines** — embedding AI at the right layer of the data stack without replacing what already works
+- **PLM Analytics** — BOM, revision and change-control modelling that turns vendor PLM exports into tested marts
 - **Open-Source First** — every internal tool we build, we ship as OSS so the community benefits
 
 We operate a **solo + contributor model** — lean by design, moving fast, building things that solve real problems for data teams.
@@ -54,7 +55,7 @@ We operate a **solo + contributor model** — lean by design, moving fast, build
 
 ## 🚀 Projects
 
-### 🔬 [PipelineProbe](https://github.com/willowvibe/pipelineprobe) — *New*
+### 🔬 [PipelineProbe](https://github.com/willowvibe/pipelineprobe)
 
 > Instant Data Pipeline Audit Report for Airflow + dbt + modern warehouses
 
@@ -104,12 +105,38 @@ ObservaKit gives 1–5 person data teams the **5 core observability pillars** �
 
 ---
 
+### 🧬 [plm-bom-pipeline](https://github.com/willowvibe/plm-bom-pipeline) — *New*
+
+> A synthetic bicycle manufacturer's PLM data, modelled into tested analytics in one command
+
+Parts, revisions, five-level BOMs and ECR → ECO → ECN change control, generated deterministically from seed 42. dbt turns ten exports into seven tested marts on DuckDB; a self-contained HTML report reads them back. Seven seeded PLM defects each fail exactly one named test.
+
+```bash
+git clone https://github.com/willowvibe/plm-bom-pipeline
+cd plm-bom-pipeline && make demo   # generate, dbt build + tests, write the report (~15s)
+```
+
+- ✅ **BOM intelligence** — recursive explosion with a cycle guard, where-used, cost and weight rollups
+- ✅ **Change control** — ECO cycle times and cross-product change impact
+- ✅ **Data quality** — 195 checks; `make verify-defects` proves one-failure attribution across nine datasets
+- ✅ **PLM ↔ ERP reconciliation** — full outer join of the eBOM and a synthetic ERP mBOM
+- ✅ **Static by default** — report and dbt docs are files; no dashboard server to run
+
+**Stack:** Python · dbt · DuckDB · pytest · GitHub Pages
+
+[![plm-bom-pipeline Demo](https://img.shields.io/badge/→%20Open%20the%20live%20demo-0f766e?style=for-the-badge)](https://willowvibe.github.io/plm-bom-pipeline/)
+[![plm-bom-pipeline Repo](https://img.shields.io/badge/→%20View%20the%20source-134e4a?style=for-the-badge)](https://github.com/willowvibe/plm-bom-pipeline)
+[![MIT License](https://img.shields.io/github/license/willowvibe/plm-bom-pipeline?style=flat-square)](https://github.com/willowvibe/plm-bom-pipeline/blob/main/LICENSE)
+
+---
+
 ## 🗂️ All Repositories
 
 | Repo | Description | Language | Status |
 |------|-------------|----------|--------|
 | [🔬 pipelineprobe](https://github.com/willowvibe/pipelineprobe) | Instant pipeline audit CLI — Airflow + dbt + warehouse | Python | `active` |
 | [🔭 ObservaKit](https://github.com/willowvibe/ObservaKit) | Self-hosted data observability & FinOps starter kit | Python | `active` |
+| [🧬 plm-bom-pipeline](https://github.com/willowvibe/plm-bom-pipeline) | Synthetic PLM data → tested BOM and change-control analytics | Python · dbt | `active` |
 | [🧰 toolscontainer](https://github.com/willowvibe/toolscontainer) | Multi-purpose Python utility scripts & automations | Python | `maintained` |
 | [🕷️ scrapy-bot](https://github.com/willowvibe/scrapy-bot) | Scrapy + Flask web scraping bot experiment | Python | `archived` |
 | [💻 online-ide](https://github.com/willowvibe/online-ide) | Lightweight online Python execution environment | Python | `experimental` |
