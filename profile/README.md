@@ -47,6 +47,7 @@ WillowVibe is a **data engineering & AI tooling studio** — solo-founded, contr
 - **FinOps for Data** — tracking Snowflake credits and BigQuery bytes billed, turning cloud cost chaos into actionable visibility
 - **AI-Augmented Pipelines** — embedding AI at the right layer of the data stack without replacing what already works
 - **PLM Analytics** — BOM, revision and change-control modelling that turns vendor PLM exports into tested marts
+- **Document AI (RAG)** — retrieval-augmented assistants that answer from your documents with citations, evaluated before they ship
 - **Open-Source First** — every internal tool we build, we ship as OSS so the community benefits
 
 We operate a **solo + contributor model** — lean by design, moving fast, building things that solve real problems for data teams.
@@ -105,7 +106,7 @@ ObservaKit gives 1–5 person data teams the **5 core observability pillars** �
 
 ---
 
-### 🧬 [plm-bom-pipeline](https://github.com/willowvibe/plm-bom-pipeline) — *New*
+### 🧬 [plm-bom-pipeline](https://github.com/willowvibe/plm-bom-pipeline)
 
 > A synthetic bicycle manufacturer's PLM data, modelled into tested analytics in one command
 
@@ -130,6 +131,33 @@ cd plm-bom-pipeline && make demo   # generate, dbt build + tests, write the repo
 
 ---
 
+### 📚 [rag-docs-chatbot](https://github.com/willowvibe/rag-docs-chatbot) — *New*
+
+> Ask questions of a document set and get answers that cite the exact page — or an explicit "I don't know"
+
+A retrieval-augmented chatbot over the public NIST SP 800-63B / 800-63-4 guidelines. FastAPI serves answers backed by Postgres + pgvector and local BGE embeddings; the live public demo runs a free model with a per-IP hourly limit.
+
+```bash
+git clone https://github.com/willowvibe/rag-docs-chatbot
+cd rag-docs-chatbot && python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
+make up && make ingest && make serve   # bring your own OLLAMA_API_KEY / OpenRouter / Anthropic key
+```
+
+- ✅ **Page-level citations** — every claim carries a `[n]` marker back to the exact page
+- ✅ **Refuses when the documents don't answer** — an explicit "I don't know" instead of a guess
+- ✅ **Hybrid retrieval** — vector + full-text search with a MiniLM cross-encoder reranker, all behind flags
+- ✅ **Evaluated** — 40-question suite: 87.5% evidence hit@5, faithfulness 0.97 (published in `eval/report.md`)
+- ✅ **Production-minded** — per-IP rate limiting in Postgres and a fallback chain across model providers
+
+**Stack:** Python · FastAPI · PostgreSQL + pgvector · fastembed (BGE) · Vercel · Neon
+
+[![rag-docs-chatbot Demo](https://img.shields.io/badge/→%20Open%20the%20live%20demo-1d4ed8?style=for-the-badge)](https://rag-docs-chatbot-three.vercel.app)
+[![rag-docs-chatbot Repo](https://img.shields.io/badge/→%20View%20the%20source-1e3a8a?style=for-the-badge)](https://github.com/willowvibe/rag-docs-chatbot)
+[![rag-docs-chatbot Walkthrough](https://img.shields.io/badge/→%20Watch%20the%20demo-2563eb?style=for-the-badge)](https://willowvibe.github.io/rag-docs-chatbot/)
+[![MIT License](https://img.shields.io/github/license/willowvibe/rag-docs-chatbot?style=flat-square)](https://github.com/willowvibe/rag-docs-chatbot/blob/main/LICENSE)
+
+---
+
 ## 🗂️ All Repositories
 
 | Repo | Description | Language | Status |
@@ -137,6 +165,7 @@ cd plm-bom-pipeline && make demo   # generate, dbt build + tests, write the repo
 | [🔬 pipelineprobe](https://github.com/willowvibe/pipelineprobe) | Instant pipeline audit CLI — Airflow + dbt + warehouse | Python | `active` |
 | [🔭 ObservaKit](https://github.com/willowvibe/ObservaKit) | Self-hosted data observability & FinOps starter kit | Python | `active` |
 | [🧬 plm-bom-pipeline](https://github.com/willowvibe/plm-bom-pipeline) | Synthetic PLM data → tested BOM and change-control analytics | Python · dbt | `active` |
+| [📚 rag-docs-chatbot](https://github.com/willowvibe/rag-docs-chatbot) | Cited-answer RAG chatbot over NIST guidelines — FastAPI + pgvector | Python | `active` |
 | [🧰 toolscontainer](https://github.com/willowvibe/toolscontainer) | Multi-purpose Python utility scripts & automations | Python | `maintained` |
 | [🕷️ scrapy-bot](https://github.com/willowvibe/scrapy-bot) | Scrapy + Flask web scraping bot experiment | Python | `archived` |
 | [💻 online-ide](https://github.com/willowvibe/online-ide) | Lightweight online Python execution environment | Python | `experimental` |
@@ -152,7 +181,7 @@ cd plm-bom-pipeline && make demo   # generate, dbt build + tests, write the repo
 | **Observability** | Prometheus · Grafana · OpenTelemetry · Soda Core |
 | **Backend** | FastAPI · SQLAlchemy · Alembic · Pydantic |
 | **Infra & DevOps** | Docker · Docker Compose · Terraform · GitHub Actions |
-| **AI / ML** | LangChain · OpenAI APIs · Vector DBs (Qdrant / ChromaDB) |
+| **AI / ML** | LLM APIs (Anthropic · OpenRouter · Ollama) · pgvector · fastembed · RAG evaluation |
 
 ---
 
@@ -213,5 +242,7 @@ We are open to:
     <a href="https://willowvibe.github.io/pipelineprobe/">PipelineProbe demo 🔬</a>
     &nbsp;·&nbsp;
     <a href="https://willowvibe.github.io/ObservaKit/">ObservaKit demo ⭐</a>
+    &nbsp;·&nbsp;
+    <a href="https://rag-docs-chatbot-three.vercel.app">rag-docs-chatbot demo 📚</a>
   </sub>
 </p>
