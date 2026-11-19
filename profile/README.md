@@ -158,6 +158,32 @@ make up && make ingest && make serve   # bring your own OLLAMA_API_KEY / OpenRou
 
 ---
 
+### 🏗️ [data-pipeline-template](https://github.com/willowvibe/data-pipeline-template) — *New*
+
+> Start a client data project in a day: one Copier command generates ingestion, dbt, CI, Docker and optional Airflow
+
+A Copier template that renders a working weather pipeline — Open-Meteo → DuckDB or Postgres → dbt marts — with optional Airflow 3.4, where astronomer-cosmos turns every dbt model and test into its own task. Swap the source; keep the tests, CI and orchestration.
+
+```bash
+pipx install copier
+copier copy gh:willowvibe/data-pipeline-template my-pipeline
+cd my-pipeline && make install && make up
+```
+
+- ✅ **Four stacks, all tested** — DuckDB or Postgres, with or without Airflow; CI renders and runs every combination
+- ✅ **Real orchestration test** — CI brings up the generated Airflow stack with `make up` and requires every DAG run to succeed
+- ✅ **dbt done properly** — typed staging, documented marts, grain and relationship tests, source freshness
+- ✅ **Offline by default** — a recorded API fixture keeps tests and demos off the network
+- ✅ **Upgradable** — `copier update` pulls template fixes into existing projects
+
+**Stack:** Copier · dbt Core · DuckDB · PostgreSQL · Apache Airflow 3 · astronomer-cosmos · GitHub Actions
+
+[![data-pipeline-template Demo](https://img.shields.io/badge/→%20Watch%20the%20demo-0e7490?style=for-the-badge)](https://willowvibe.github.io/data-pipeline-template/#demo)
+[![data-pipeline-template Repo](https://img.shields.io/badge/→%20View%20the%20source-155e75?style=for-the-badge)](https://github.com/willowvibe/data-pipeline-template)
+[![MIT License](https://img.shields.io/github/license/willowvibe/data-pipeline-template?style=flat-square)](https://github.com/willowvibe/data-pipeline-template/blob/main/LICENSE)
+
+---
+
 ## 🗂️ All Repositories
 
 | Repo | Description | Language | Status |
@@ -166,6 +192,7 @@ make up && make ingest && make serve   # bring your own OLLAMA_API_KEY / OpenRou
 | [🔭 ObservaKit](https://github.com/willowvibe/ObservaKit) | Self-hosted data observability & FinOps starter kit | Python | `active` |
 | [🧬 plm-bom-pipeline](https://github.com/willowvibe/plm-bom-pipeline) | Synthetic PLM data → tested BOM and change-control analytics | Python · dbt | `active` |
 | [📚 rag-docs-chatbot](https://github.com/willowvibe/rag-docs-chatbot) | Cited-answer RAG chatbot over NIST guidelines — FastAPI + pgvector | Python | `active` |
+| [🏗️ data-pipeline-template](https://github.com/willowvibe/data-pipeline-template) | Copier template: tested dbt + optional Airflow project in one command | Python · dbt | `active` |
 | [🧰 toolscontainer](https://github.com/willowvibe/toolscontainer) | Multi-purpose Python utility scripts & automations | Python | `maintained` |
 | [🕷️ scrapy-bot](https://github.com/willowvibe/scrapy-bot) | Scrapy + Flask web scraping bot experiment | Python | `archived` |
 | [💻 online-ide](https://github.com/willowvibe/online-ide) | Lightweight online Python execution environment | Python | `experimental` |
@@ -244,5 +271,7 @@ We are open to:
     <a href="https://willowvibe.github.io/ObservaKit/">ObservaKit demo ⭐</a>
     &nbsp;·&nbsp;
     <a href="https://rag-docs-chatbot-three.vercel.app">rag-docs-chatbot demo 📚</a>
+    &nbsp;·&nbsp;
+    <a href="https://willowvibe.github.io/data-pipeline-template/">data-pipeline-template demo 🏗️</a>
   </sub>
 </p>
